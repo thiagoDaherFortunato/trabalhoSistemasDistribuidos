@@ -1,19 +1,22 @@
 package Principal;
 import java.net.*;
 import java.io.*;
-
+import Principal.Citala;
 public class TCPClient {
 
 	public static void main(String[] args) {
 		//
+		
 		Socket socket = null;
 		try{
 			int serverPort = 5678;
 			socket = new Socket("localhost", serverPort);
 			DataInputStream in = new DataInputStream(socket.getInputStream());
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-			
-			out.writeUTF("Mensagem do cliente TCP...");
+			String mensagem= "o ataque será realizado amanhã";
+			String mensagemCriptografada= Citala.CripitografarMensagem(mensagem,4);
+			System.out.printf("mensagem envida original",mensagem);
+			out.writeUTF(mensagemCriptografada);
 			String dataReceived = in.readUTF();
 			System.out.println("Dados recebidos: " + dataReceived);
 			
