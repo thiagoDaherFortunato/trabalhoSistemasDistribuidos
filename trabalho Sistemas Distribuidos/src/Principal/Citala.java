@@ -1,10 +1,7 @@
 package Principal;
 
 public class Citala {
-	//public static void main(String[] args) {
-		// System.out.println(CripitografarMensagem("o ataque será realizado amanhã",4));
-		
-	//}
+	
 	public static String CripitografarMensagem(String mensagem,int chave) {
 
 		String mensagemSemEpaco = mensagem.replaceAll(" ", "");
@@ -16,8 +13,8 @@ public class Citala {
 		}
 		
 		char[][] matriz = new char[chave][tamanhoMatriz];
-		String mensagem2=Criptografia(preencherMatriz(matriz,mensagemSemEpaco),chave,tamanhoMatriz);
-		return mensagem2;
+		String mensagemCriptografada=Criptografia(preencherMatriz(matriz,mensagemSemEpaco),chave,tamanhoMatriz);
+		return mensagemCriptografada;
 	}
 	
 	public static char[][] preencherMatriz(char[][] matriz,String mensagemSemEpaco) {
@@ -30,10 +27,9 @@ public class Citala {
 				}else {
 					matriz [i][j]='1';
 				}
-				System.out.print(matriz [i][j]);
 				contador++;
 			}
-			System.out.println();
+		
 		}
 		return matriz;
 	}
@@ -44,24 +40,45 @@ public class Citala {
 		for (int i =0;i<tamanhoMatriz;i++) {
 			for (int j =0;j<chave;j++) {
 				if(j<chave) {
-					System.out.printf("i"+i);
-					System.out.print(matriz[j][i]);
 					mensagemCriptografada+=matriz[j][i];
 				}
 			}
-			System.out.println();
 		}
 		
 		return mensagemCriptografada;
 		
 	}
 	
-	public  static String DesCripitografar(String mensagemCriptografada) {
+	public  static String DesCripitografar(String mensagemCriptografada,int chave) {
 	
-		String mensagemOriginal= "";
 		
+		String mensagemSemEpaco = mensagemCriptografada.replaceAll(" ", "");
+		int tamanhoMatriz=0;
+		if(mensagemSemEpaco.length() % chave > 0) {
+			tamanhoMatriz = (mensagemSemEpaco.length() / chave)+1;
+		}else {
+			tamanhoMatriz = (mensagemSemEpaco.length() / chave);
+		}
+		
+		char[][] matriz = new char[tamanhoMatriz][chave];
+		String mensagemOriginal= Desciptografia(preencherMatriz(matriz,mensagemSemEpaco),chave,tamanhoMatriz);
 		return mensagemOriginal;
 	}
+	
+
+	public static String Desciptografia(char[][] matriz,int chave, int tamanhoMatriz) {
+		String mensagemCriptografada= "";
+		for (int i =0;i<chave;i++) {
+			for (int j =0;j<tamanhoMatriz;j++) {
+					mensagemCriptografada+=matriz[j][i];
+			}
+		}
+
+		return mensagemCriptografada;
+		
+	}
+	
+
 	
 	
 }

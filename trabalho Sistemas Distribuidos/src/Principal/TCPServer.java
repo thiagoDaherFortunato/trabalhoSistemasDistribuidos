@@ -41,7 +41,7 @@ class Connection extends Thread{
 	public void run(){
 		try{
 			String data = in.readUTF();
-			System.out.println("Mensagem recebida: " + data);
+			System.out.println("Mensagem recebida servidor: " +Citala.DesCripitografar(data,4) );
 			out.writeUTF("TCPServer: teste de envio de mensagem.");
 		}catch(EOFException e){
 			System.out.println("EOF: " + e.getMessage());
