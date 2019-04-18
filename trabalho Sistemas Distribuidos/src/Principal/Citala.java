@@ -3,8 +3,8 @@ package Principal;
 public class Citala {
 	
 	public static String CripitografarMensagem(String mensagem,int chave) {
-
-		String mensagemSemEpaco = mensagem.replaceAll(" ", "");
+		// o 1 serve para marca onde tem um espaço e preencher a tabela quando precisar
+		String mensagemSemEpaco = mensagem.replaceAll(" ", "1");
 		int tamanhoMatriz=0;
 		if(mensagemSemEpaco.length() % chave > 0) {
 			tamanhoMatriz = (mensagemSemEpaco.length() / chave)+1;
@@ -52,7 +52,7 @@ public class Citala {
 	public  static String DesCripitografar(String mensagemCriptografada,int chave) {
 	
 		
-		String mensagemSemEpaco = mensagemCriptografada.replaceAll(" ", "");
+		String mensagemSemEpaco = mensagemCriptografada.replaceAll("1", " ");
 		int tamanhoMatriz=0;
 		if(mensagemSemEpaco.length() % chave > 0) {
 			tamanhoMatriz = (mensagemSemEpaco.length() / chave)+1;
