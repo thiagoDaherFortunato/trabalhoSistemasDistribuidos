@@ -19,7 +19,7 @@ static JFrame frame;
     }
 
     public static void Aviso(String cima, String texto) {
-    	System.out.println("Aviso\t"+cima);
+    	//System.out.println("Aviso\t"+cima+"\t"+texto);
         JOptionPane.showMessageDialog(null, texto, cima, JOptionPane.INFORMATION_MESSAGE);
     }
     public static String Mensagem(String frase) {

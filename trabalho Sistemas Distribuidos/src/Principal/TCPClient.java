@@ -14,7 +14,9 @@ public class TCPClient {
 			socket = new Socket("localhost", serverPort);
 			DataInputStream in = new DataInputStream(socket.getInputStream());
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-		
+			System.out.println("executarCliente"+mensagem);
+			
+			
 			String mensagemCriptografada= Citala.CripitografarMensagem(mensagem,4);
 			System.out.printf("mensagem envida original:"+mensagem);
 			
