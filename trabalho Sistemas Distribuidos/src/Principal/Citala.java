@@ -62,6 +62,7 @@ public class Citala {
 		
 		char[][] matriz = new char[tamanhoMatriz][chave];
 		String mensagemOriginal= Desciptografia(preencherMatriz(matriz,mensagemSemEpaco),chave,tamanhoMatriz);
+		
 		return mensagemOriginal;
 	}
 	

@@ -4,8 +4,9 @@ import java.io.*;
 import Principal.Citala;
 public class TCPClient {
 
-	public static void main(String[] args) {
-		//
+
+	
+	public static void executarCliente(String mensagem) {
 		
 		Socket socket = null;
 		try{
@@ -13,9 +14,10 @@ public class TCPClient {
 			socket = new Socket("localhost", serverPort);
 			DataInputStream in = new DataInputStream(socket.getInputStream());
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-			String mensagem= "o ataque será realizado amanhã";
+		
 			String mensagemCriptografada= Citala.CripitografarMensagem(mensagem,4);
-			System.out.printf("mensagem envida original",mensagem);
+			System.out.printf("mensagem envida original:"+mensagem);
+			
 			out.writeUTF(mensagemCriptografada);
 			String dataReceived = in.readUTF();
 			System.out.println("Dados recebidos: " + dataReceived);
@@ -32,7 +34,11 @@ public class TCPClient {
 					System.out.println("Falha ao fechar a conexão: " + e.getMessage());
 				}
 		}
-
 	}
+	
+
+		
+	
+	
 }
 
