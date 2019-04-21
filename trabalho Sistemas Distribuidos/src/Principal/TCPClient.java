@@ -17,7 +17,7 @@ public class TCPClient {
 			System.out.println("executarCliente"+mensagem);
 			
 			
-			String mensagemCriptografada= Citala.CripitografarMensagem(mensagem,4);
+			String mensagemCriptografada= Citala.CripitografarMensagem(mensagem,chave);
 			System.out.printf("mensagem envida original:"+mensagem);
 			
 			out.writeUTF(mensagemCriptografada);
