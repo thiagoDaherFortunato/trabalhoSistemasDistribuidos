@@ -1,5 +1,9 @@
 package Principal;
 
+/*
+ * Dupla Thiago e Matheus
+ * 
+*/
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 

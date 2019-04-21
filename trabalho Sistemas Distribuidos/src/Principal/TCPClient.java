@@ -5,6 +5,10 @@ import Principal.Citala;
 public class TCPClient {
 
 
+	/*
+	 * Dupla Thiago e Matheus
+	 * 
+	*/
 	
 	public static void executarCliente(String mensagem, int chave) {
 		

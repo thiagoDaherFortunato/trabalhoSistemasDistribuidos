@@ -2,7 +2,10 @@ package Principal;
 
 public class Principal extends javax.swing.JFrame {
 
-
+	/*
+	 * Dupla Thiago e Matheus
+	 * 
+	*/
 	public static void main(String[] args) {
 		int chave=4;
 		TCPServer.executarServer(chave);

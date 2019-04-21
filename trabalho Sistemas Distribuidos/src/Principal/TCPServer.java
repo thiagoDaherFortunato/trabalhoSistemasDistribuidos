@@ -3,6 +3,10 @@ package Principal;
 import java.net.*;
 import java.io.*;
 
+/*
+ * Dupla Thiago e Matheus
+ * 
+*/
 public class TCPServer {
 	
 
