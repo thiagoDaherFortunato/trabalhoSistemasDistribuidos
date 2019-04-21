@@ -7,7 +7,7 @@ public class TCPServer {
 	
 
 
-	public static void executarServer() {
+	public static void executarServer(int chave) {
 		// TODO Auto-generated method stub
 		try{
 			int serverPort = 5678;
@@ -15,7 +15,7 @@ public class TCPServer {
 			System.out.println("Servidor escutando a porta: " + serverPort);
 			while(true){
 				Socket clientSocket = listenSocket.accept();
-				Connection connection = new Connection(clientSocket);
+				Connection connection = new Connection(clientSocket, chave);
 			}
 		}catch(IOException e){
 			System.out.println("Listen: " + e.getMessage());

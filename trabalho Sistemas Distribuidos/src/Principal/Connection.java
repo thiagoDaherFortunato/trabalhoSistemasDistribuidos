@@ -10,10 +10,11 @@ class Connection extends Thread{
 	DataInputStream in;
 	DataOutputStream out;
 	Socket clientSocket;
+	int chave;
 	
-	
-	public Connection(Socket aClientSocket) {
+	public Connection(Socket aClientSocket, int chaveConstrutor) {
 		try{
+			chave=chaveConstrutor;
 			clientSocket = aClientSocket;
 			in = new DataInputStream(clientSocket.getInputStream());
 			out = new DataOutputStream(clientSocket.getOutputStream());
@@ -26,8 +27,8 @@ class Connection extends Thread{
 	public void run(){
 		try{
 			String data = in.readUTF();
-			System.out.println("Mensagem recebida servidor: " +Citala.DesCripitografar(data,4) );
-			Interface.Aviso("Mensagem recebida servidor:", Citala.DesCripitografar(data,4));
+			System.out.println("Mensagem recebida servidor: " +Citala.DesCripitografar(data,chave) );
+			Interface.Aviso("Mensagem recebida servidor:", Citala.DesCripitografar(data,chave));
 			out.writeUTF("TCPServer: teste de envio de mensagem.");
 		}catch(EOFException e){
 			System.out.println("EOF: " + e.getMessage());
@@ -41,5 +42,4 @@ class Connection extends Thread{
 			}
 		}
 	}
-	
 }

@@ -5,6 +5,7 @@ public class Citala {
 	public static String CripitografarMensagem(String mensagem,int chave) {
 		// O "1" marca onde tem um espaço e preenche a tabela quando precisa.
 		String mensagemSemEpaco = mensagem.replaceAll(" ", "1");
+		System.out.println(chave);
 		int tamanhoMatriz=0;
 		if(mensagemSemEpaco.length() % chave > 0) {
 			tamanhoMatriz = (mensagemSemEpaco.length() / chave)+1;

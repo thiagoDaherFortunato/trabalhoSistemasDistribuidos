@@ -6,7 +6,7 @@ public class TCPClient {
 
 
 	
-	public static void executarCliente(String mensagem) {
+	public static void executarCliente(String mensagem, int chave) {
 		
 		Socket socket = null;
 		try{
