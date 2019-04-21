@@ -3,7 +3,7 @@ package Principal;
 public class Citala {
 	
 	public static String CripitografarMensagem(String mensagem,int chave) {
-		// o 1 serve para marca onde tem um espaço e preencher a tabela quando precisar
+		// O "1" marca onde tem um espaÃ§o e preenche a tabela quando precisa.
 		String mensagemSemEpaco = mensagem.replaceAll(" ", "1");
 		int tamanhoMatriz=0;
 		if(mensagemSemEpaco.length() % chave > 0) {
